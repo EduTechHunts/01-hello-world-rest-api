@@ -54,6 +54,26 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			<plugin>
+			    <groupId>com.spotify</groupId>
+			    <artifactId>dockerfile-maven-plugin</artifactId>
+			    <version>1.4.10</version>
+			    <executions>
+			        <execution>
+			            <id>build-backoffice</id>
+                        <phase>package</phase>
+			            <goals>
+			                <goal>build</goal>
+			            </goals>
+			            <configuration>
+			                <dockerDirectory>${project.basedir}/${dockerPath}/backoffice</dockerDirectory>
+                            <imageName>backoffice_test</imageName>
+			            </configuration>
+			        </execution>
+			    </executions>
+			   
+	        </plugin>
+			
 		</plugins>
 
 	</build>
